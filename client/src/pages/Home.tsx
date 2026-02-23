@@ -41,6 +41,13 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 
+import image1 from "../images/image1.png";
+import image2 from "../images/image2.png";
+import image3 from "../images/image3.png";
+import image4 from "../images/image4.png";
+import image5 from "../images/image5.png";
+import image6 from "../images/image6.png";
+
 function copyToClipboard(text: string) {
   void navigator.clipboard?.writeText(text);
 }
@@ -57,7 +64,7 @@ export default function Home() {
         summary: t("case1.summary"),
         stack: [t("case1.stack1"), t("case1.stack2"), t("case1.stack3"), t("case1.stack4"), t("case1.stack5")],
         results: [t("case1.result1"), t("case1.result2"), t("case1.result3")],
-        image: "https://picsum.photos/seed/cnshop/800/450",
+        image: image1,
         link: "https://www.jd.com",
       },
       {
@@ -65,7 +72,7 @@ export default function Home() {
         summary: t("case2.summary"),
         stack: [t("case2.stack1"), t("case2.stack2"), t("case2.stack3"), t("case2.stack4"), t("case2.stack5")],
         results: [t("case2.result1"), t("case2.result2"), t("case2.result3")],
-        image: "https://picsum.photos/seed/cnportal/800/450",
+        image: image2,
         link: "https://www.huawei.com/cn/",
       },
       {
@@ -73,7 +80,7 @@ export default function Home() {
         summary: t("case3.summary"),
         stack: [t("case3.stack1"), t("case3.stack2"), t("case3.stack3"), t("case3.stack4"), t("case3.stack5")],
         results: [t("case3.result1"), t("case3.result2"), t("case3.result3")],
-        image: "https://picsum.photos/seed/cnservice/800/450",
+        image: image3,
         link: "https://www.meituan.com",
       },
       {
@@ -81,7 +88,7 @@ export default function Home() {
         summary: t("case4.summary"),
         stack: [t("case4.stack1"), t("case4.stack2"), t("case4.stack3"), t("case4.stack4"), t("case4.stack5")],
         results: [t("case4.result1"), t("case4.result2"), t("case4.result3")],
-        image: "https://picsum.photos/seed/cnai-baidu/800/450",
+        image: image4,
         link: "https://www.baidu.com",
       },
       {
@@ -89,7 +96,7 @@ export default function Home() {
         summary: t("case5.summary"),
         stack: [t("case5.stack1"), t("case5.stack2"), t("case5.stack3"), t("case5.stack4"), t("case5.stack5")],
         results: [t("case5.result1"), t("case5.result2"), t("case5.result3")],
-        image: "https://picsum.photos/seed/cnai-iflytek/800/450",
+        image: image5,
         link: "https://www.iflytek.com",
       },
       {
@@ -97,7 +104,7 @@ export default function Home() {
         summary: t("case6.summary"),
         stack: [t("case6.stack1"), t("case6.stack2"), t("case6.stack3"), t("case6.stack4"), t("case6.stack5")],
         results: [t("case6.result1"), t("case6.result2"), t("case6.result3")],
-        image: "https://picsum.photos/seed/cnchain-ant/800/450",
+        image: image6,
         link: "https://antchain.antgroup.com",
       },
     ],
