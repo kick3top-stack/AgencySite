@@ -12,10 +12,10 @@ export function LanguageToggle() {
       size="icon"
       aria-label={isZh ? "Switch to English" : "切换到中文"}
       onClick={() => setLocale(isZh ? "en" : "zh")}
-      className="min-w-[2.25rem] font-medium"
+      className="h-9 w-9 shrink-0 text-xs font-semibold"
     >
       <span className="sr-only">{isZh ? "English" : "中文"}</span>
-      {isZh ? "EN" : "中"}
+      <span className="tabular-nums">{isZh ? "EN" : "中"}</span>
     </Button>
   );
 }

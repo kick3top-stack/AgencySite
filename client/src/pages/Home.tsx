@@ -53,37 +53,82 @@ export default function Home() {
   const cases = useMemo(
     () => [
       {
-        title: "隐私计算 × 链上结算平台",
+        title: "电商平台 · 综合零售",
         summary:
-          "为跨境业务构建端到端的可信结算流程，强调合规与审计可追溯，支持高并发与多签风控。",
-        stack: ["Solidity", "Node.js", "PostgreSQL", "AWS", "Observability"],
+          "面向国内用户的电商站点：首页推荐与分类导航、商品列表与详情、购物车与订单流程、会员中心与优惠券，支持多端适配与支付对接。",
+        stack: ["React", "Node.js", "PostgreSQL", "Redis", "Alipay/WeChat Pay"],
         results: [
-          "多签与风控策略：可配置、可回放、可审计",
-          "链上交互吞吐优化：减少失败率与费用波动",
-          "灰度发布与监控：关键指标告警与追踪",
+          "商品展示：分类、搜索、筛选与详情页完整动线",
+          "交易流程：加购、结算、支付与订单状态追踪",
+          "用户体系：注册登录、地址与收藏、订单与售后",
         ],
+        image: "https://picsum.photos/seed/cnshop/800/450",
+        link: "https://www.jd.com",
       },
       {
-        title: "企业级 AI 助手：流程与知识系统",
+        title: "企业门户 · 官网与资讯",
         summary:
-          "打造内部机密知识问答与流程自动化系统，具备权限隔离、可观测性与持续迭代的工程基座。",
-        stack: ["Python", "TensorFlow", "React", "RBAC", "Vector Search"],
+          "企业官网与信息发布平台：品牌展示、新闻资讯、产品/服务介绍、招聘与关于我们、联系表单与多语言切换，兼顾 SEO 与移动端浏览。",
+        stack: ["React", "Vite", "CMS", "i18n", "SEO"],
         results: [
-          "权限隔离：部门/项目级别访问控制与审计日志",
-          "知识更新：增量索引与可追踪的内容版本",
-          "成本控制：缓存策略与分层推理架构",
+          "内容展示：首页焦点、栏目导航与文章详情页",
+          "功能模块：关于我们、招聘、联系表单与地图",
+          "多端与多语言：响应式布局与中英等语言切换",
         ],
+        image: "https://picsum.photos/seed/cnportal/800/450",
+        link: "https://www.huawei.com/cn/",
       },
       {
-        title: "高端多端产品：从设计到上架",
+        title: "服务平台 · 预约与预订",
         summary:
-          "移动端与 Web 统一体系，强调体验一致性与工程稳定性，支持可扩展的业务增长。",
-        stack: ["React", "Mobile", "CI/CD", "SLA", "Analytics"],
+          "预约/预订类服务站点：服务展示与搜索、时段选择与下单、在线支付、订单管理与消息通知，支持后台配置与数据统计。",
+        stack: ["React", "Node.js", "WebSocket", "Stripe/支付", "Admin"],
         results: [
-          "组件体系：统一设计语言与可复用交互",
-          "性能基线：首屏与交互延迟达标并持续监控",
-          "上线节奏：周迭代发布，零阻塞回滚策略",
+          "预约流程：服务选择、日历时段、提交与支付",
+          "用户端：我的订单、改期/取消与消息提醒",
+          "运营端：排期配置、订单列表与基础数据看板",
         ],
+        image: "https://picsum.photos/seed/cnservice/800/450",
+        link: "https://www.meituan.com",
+      },
+      {
+        title: "AI 搜索与信息 · 百度",
+        summary:
+          "国内领先的搜索引擎与 AI 产品入口：搜索、信息流、百科与知道、地图与贴吧，以及文心一言等大模型与智能云服务，覆盖多端与开放能力。",
+        stack: ["AI", "大模型", "搜索", "云服务", "多端"],
+        results: [
+          "搜索与信息：全网检索、垂直频道与智能摘要",
+          "AI 能力：文心大模型、智能体与开发者平台",
+          "生态：地图、贴吧、百科与移动端矩阵",
+        ],
+        image: "https://picsum.photos/seed/cnai-baidu/800/450",
+        link: "https://www.baidu.com",
+      },
+      {
+        title: "AI 语音与智能 · 科大讯飞",
+        summary:
+          "语音识别、自然语言与认知智能：输入法、录音转写、会议系统、教育与医疗等 ToB/ToC 产品，提供开放平台与行业解决方案。",
+        stack: ["语音识别", "NLP", "开放平台", "教育/医疗", "IoT"],
+        results: [
+          "语音能力：识别、合成、评测与多语种",
+          "行业方案：教育、医疗、司法与智能硬件",
+          "开放平台：API、SDK 与私有化部署",
+        ],
+        image: "https://picsum.photos/seed/cnai-iflytek/800/450",
+        link: "https://www.iflytek.com",
+      },
+      {
+        title: "区块链服务 · 蚂蚁链",
+        summary:
+          "企业级区块链平台：可信存证、供应链金融、版权与溯源等场景，提供 BaaS、跨链与隐私计算能力，服务政务与产业数字化。",
+        stack: ["区块链", "BaaS", "跨链", "隐私计算", "存证"],
+        results: [
+          "链上服务：存证、溯源与多方协作",
+          "跨链与互通：异构链与联盟链对接",
+          "合规与隐私：可控可审计与数据安全",
+        ],
+        image: "https://picsum.photos/seed/cnchain-ant/800/450",
+        link: "https://antchain.antgroup.com",
       },
     ],
     [],
@@ -305,6 +350,8 @@ export default function Home() {
                 summary={c.summary}
                 results={c.results}
                 stack={c.stack}
+                image={c.image}
+                link={c.link}
                 onView={() => {
                   setSelectedCase(c.title);
                   toast({

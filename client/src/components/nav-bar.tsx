@@ -87,7 +87,7 @@ export function NavBar() {
                   />
                   <span className="relative font-display text-lg font-black nebula-text">{t("nav.logo")}</span>
                 </div>
-                <div className="leading-tight">
+                <div className="leading-tight min-w-0 break-words">
                   <div className="font-display text-sm sm:text-base font-extrabold tracking-tight">
                     {t("nav.brand")}
                   </div>
@@ -99,8 +99,8 @@ export function NavBar() {
             </motion.div>
           </div>
 
-          <div className="hidden md:flex items-center gap-2">
-            <nav className="flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2 min-w-0">
+            <nav className="flex items-center gap-1 min-w-0 flex-shrink">
               {navItemKeys.map((item) => (
                 <Button
                   key={item.id}
@@ -114,12 +114,12 @@ export function NavBar() {
                 </Button>
               ))}
             </nav>
-            <div className="ml-2 flex items-center gap-2">
+            <div className="ml-2 flex shrink-0 items-center gap-2">
               <Button
                 type="button"
                 variant="default"
                 onClick={() => scrollToSection("contact")}
-                className="shadow-lg shadow-black/5"
+                className="shadow-lg shadow-black/5 whitespace-nowrap"
               >
                 {t("nav.cta")}
               </Button>
@@ -128,7 +128,7 @@ export function NavBar() {
             </div>
           </div>
 
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex shrink-0 items-center gap-2">
             <ThemeToggle />
             <LanguageToggle />
             <Button

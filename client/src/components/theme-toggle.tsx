@@ -13,7 +13,7 @@ export function ThemeToggle() {
       size="icon"
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       onClick={toggle}
-      className="relative overflow-hidden"
+      className="relative h-9 w-9 shrink-0 overflow-hidden"
     >
       <span className="sr-only">{isDark ? "Light" : "Dark"}</span>
       {isDark ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
