@@ -12,6 +12,8 @@ export function ProjectCard({
   stack,
   image,
   link,
+  resultsLabel = "Results",
+  linkAriaLabel,
   onView,
 }: {
   title: string;
@@ -21,13 +23,19 @@ export function ProjectCard({
   image?: string;
   /** External link (e.g. to site homepage). When set, the card button opens this URL. */
   link?: string;
+  resultsLabel?: string;
+  linkAriaLabel?: string;
   onView: () => void;
 }) {
   return (
-    <motion.div whileHover={{ y: -3 }} transition={{ type: "spring", stiffness: 260, damping: 22 }}>
-      <Card className="surface-glass gold-halo overflow-hidden">
+    <motion.div
+      className="h-full"
+      whileHover={{ y: -3 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+    >
+      <Card className="surface-glass gold-halo flex h-full flex-col overflow-hidden">
         {image ? (
-          <div className="relative w-full aspect-video overflow-hidden border-b bg-muted/30">
+          <div className="relative w-full shrink-0 aspect-video overflow-hidden border-b bg-muted/30">
             <img
               src={image}
               alt=""
@@ -35,15 +43,15 @@ export function ProjectCard({
             />
           </div>
         ) : null}
-        <CardHeader className="flex flex-row items-start justify-between gap-2 space-y-0">
-          <div className="grid gap-1 min-w-0">
+        <CardHeader className="flex shrink-0 flex-row items-start justify-between gap-2 space-y-0">
+          <div className="grid min-w-0 gap-1">
             <CardTitle className="text-xl font-extrabold break-words">{title}</CardTitle>
-            <p className="text-sm text-muted-foreground leading-relaxed break-words">{summary}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed break-words line-clamp-3">{summary}</p>
           </div>
 
           {link ? (
             <Button type="button" variant="outline" size="icon" className="shrink-0" asChild>
-              <a href={link} target="_blank" rel="noopener noreferrer" aria-label="打开网站">
+              <a href={link} target="_blank" rel="noopener noreferrer" aria-label={linkAriaLabel ?? "Open website"}>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </Button>
@@ -54,21 +62,21 @@ export function ProjectCard({
           )}
         </CardHeader>
 
-        <CardContent className="pt-0">
-          <div className="mt-3 flex flex-wrap gap-2">
-            {stack.map((t) => (
-              <Badge key={t} variant="secondary" className="no-default-active-elevate">
-                {t}
+        <CardContent className="flex min-h-0 flex-1 flex-col pt-0">
+          <div className="mt-3 flex shrink-0 flex-wrap gap-2">
+            {stack.map((stackItem) => (
+              <Badge key={stackItem} variant="secondary" className="no-default-active-elevate">
+                {stackItem}
               </Badge>
             ))}
           </div>
 
-          <div className="mt-5 grid gap-2">
-            <div className="text-xs font-semibold tracking-wide text-muted-foreground">Results</div>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+          <div className="mt-5 flex min-h-0 flex-1 flex-col gap-2">
+            <div className="shrink-0 text-xs font-semibold tracking-wide text-muted-foreground">{resultsLabel}</div>
+            <ul className="min-h-0 space-y-2 text-sm text-muted-foreground">
               {results.map((r) => (
                 <li key={r} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   <span className="leading-relaxed">{r}</span>
                 </li>
               ))}

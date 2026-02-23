@@ -53,135 +53,85 @@ export default function Home() {
   const cases = useMemo(
     () => [
       {
-        title: "电商平台 · 综合零售",
-        summary:
-          "面向国内用户的电商站点：首页推荐与分类导航、商品列表与详情、购物车与订单流程、会员中心与优惠券，支持多端适配与支付对接。",
-        stack: ["React", "Node.js", "PostgreSQL", "Redis", "Alipay/WeChat Pay"],
-        results: [
-          "商品展示：分类、搜索、筛选与详情页完整动线",
-          "交易流程：加购、结算、支付与订单状态追踪",
-          "用户体系：注册登录、地址与收藏、订单与售后",
-        ],
+        title: t("case1.title"),
+        summary: t("case1.summary"),
+        stack: [t("case1.stack1"), t("case1.stack2"), t("case1.stack3"), t("case1.stack4"), t("case1.stack5")],
+        results: [t("case1.result1"), t("case1.result2"), t("case1.result3")],
         image: "https://picsum.photos/seed/cnshop/800/450",
         link: "https://www.jd.com",
       },
       {
-        title: "企业门户 · 官网与资讯",
-        summary:
-          "企业官网与信息发布平台：品牌展示、新闻资讯、产品/服务介绍、招聘与关于我们、联系表单与多语言切换，兼顾 SEO 与移动端浏览。",
-        stack: ["React", "Vite", "CMS", "i18n", "SEO"],
-        results: [
-          "内容展示：首页焦点、栏目导航与文章详情页",
-          "功能模块：关于我们、招聘、联系表单与地图",
-          "多端与多语言：响应式布局与中英等语言切换",
-        ],
+        title: t("case2.title"),
+        summary: t("case2.summary"),
+        stack: [t("case2.stack1"), t("case2.stack2"), t("case2.stack3"), t("case2.stack4"), t("case2.stack5")],
+        results: [t("case2.result1"), t("case2.result2"), t("case2.result3")],
         image: "https://picsum.photos/seed/cnportal/800/450",
         link: "https://www.huawei.com/cn/",
       },
       {
-        title: "服务平台 · 预约与预订",
-        summary:
-          "预约/预订类服务站点：服务展示与搜索、时段选择与下单、在线支付、订单管理与消息通知，支持后台配置与数据统计。",
-        stack: ["React", "Node.js", "WebSocket", "Stripe/支付", "Admin"],
-        results: [
-          "预约流程：服务选择、日历时段、提交与支付",
-          "用户端：我的订单、改期/取消与消息提醒",
-          "运营端：排期配置、订单列表与基础数据看板",
-        ],
+        title: t("case3.title"),
+        summary: t("case3.summary"),
+        stack: [t("case3.stack1"), t("case3.stack2"), t("case3.stack3"), t("case3.stack4"), t("case3.stack5")],
+        results: [t("case3.result1"), t("case3.result2"), t("case3.result3")],
         image: "https://picsum.photos/seed/cnservice/800/450",
         link: "https://www.meituan.com",
       },
       {
-        title: "AI 搜索与信息 · 百度",
-        summary:
-          "国内领先的搜索引擎与 AI 产品入口：搜索、信息流、百科与知道、地图与贴吧，以及文心一言等大模型与智能云服务，覆盖多端与开放能力。",
-        stack: ["AI", "大模型", "搜索", "云服务", "多端"],
-        results: [
-          "搜索与信息：全网检索、垂直频道与智能摘要",
-          "AI 能力：文心大模型、智能体与开发者平台",
-          "生态：地图、贴吧、百科与移动端矩阵",
-        ],
+        title: t("case4.title"),
+        summary: t("case4.summary"),
+        stack: [t("case4.stack1"), t("case4.stack2"), t("case4.stack3"), t("case4.stack4"), t("case4.stack5")],
+        results: [t("case4.result1"), t("case4.result2"), t("case4.result3")],
         image: "https://picsum.photos/seed/cnai-baidu/800/450",
         link: "https://www.baidu.com",
       },
       {
-        title: "AI 语音与智能 · 科大讯飞",
-        summary:
-          "语音识别、自然语言与认知智能：输入法、录音转写、会议系统、教育与医疗等 ToB/ToC 产品，提供开放平台与行业解决方案。",
-        stack: ["语音识别", "NLP", "开放平台", "教育/医疗", "IoT"],
-        results: [
-          "语音能力：识别、合成、评测与多语种",
-          "行业方案：教育、医疗、司法与智能硬件",
-          "开放平台：API、SDK 与私有化部署",
-        ],
+        title: t("case5.title"),
+        summary: t("case5.summary"),
+        stack: [t("case5.stack1"), t("case5.stack2"), t("case5.stack3"), t("case5.stack4"), t("case5.stack5")],
+        results: [t("case5.result1"), t("case5.result2"), t("case5.result3")],
         image: "https://picsum.photos/seed/cnai-iflytek/800/450",
         link: "https://www.iflytek.com",
       },
       {
-        title: "区块链服务 · 蚂蚁链",
-        summary:
-          "企业级区块链平台：可信存证、供应链金融、版权与溯源等场景，提供 BaaS、跨链与隐私计算能力，服务政务与产业数字化。",
-        stack: ["区块链", "BaaS", "跨链", "隐私计算", "存证"],
-        results: [
-          "链上服务：存证、溯源与多方协作",
-          "跨链与互通：异构链与联盟链对接",
-          "合规与隐私：可控可审计与数据安全",
-        ],
+        title: t("case6.title"),
+        summary: t("case6.summary"),
+        stack: [t("case6.stack1"), t("case6.stack2"), t("case6.stack3"), t("case6.stack4"), t("case6.stack5")],
+        results: [t("case6.result1"), t("case6.result2"), t("case6.result3")],
         image: "https://picsum.photos/seed/cnchain-ant/800/450",
         link: "https://antchain.antgroup.com",
       },
     ],
-    [],
+    [t],
   );
 
   const services = useMemo(
     () => [
       {
         icon: Blocks,
-        title: "Blockchain Development",
+        title: t("service1.title"),
         tags: ["Solidity", "Audits"],
-        bullets: [
-          "智能合约架构设计、升级与权限模型",
-          "Gas 优化、交易失败率与链上可观测",
-          "安全审计配合：静态分析 + 测试覆盖",
-          "多签、风控与链下服务协作流程",
-        ],
+        bullets: [t("service1.bullet1"), t("service1.bullet2"), t("service1.bullet3"), t("service1.bullet4")],
       },
       {
         icon: BrainCircuit,
-        title: "AI Solutions",
+        title: t("service2.title"),
         tags: ["ML", "RAG"],
-        bullets: [
-          "企业级 AI 助手：权限隔离、审计与可观测",
-          "数据管道与特征工程：可复现与可追踪",
-          "RAG/向量检索：知识更新策略与质量评估",
-          "模型服务：缓存、分层推理与成本控制",
-        ],
+        bullets: [t("service2.bullet1"), t("service2.bullet2"), t("service2.bullet3"), t("service2.bullet4")],
       },
       {
         icon: Code2,
-        title: "Web Development",
+        title: t("service3.title"),
         tags: ["React", "Node"],
-        bullets: [
-          "高端营销站与企业后台：信息密度与体验平衡",
-          "工程化：类型安全、测试、性能预算",
-          "可观测：日志、追踪、错误聚合与告警",
-          "可扩展架构：模块边界清晰，利于迭代",
-        ],
+        bullets: [t("service3.bullet1"), t("service3.bullet2"), t("service3.bullet3"), t("service3.bullet4")],
       },
       {
         icon: Smartphone,
-        title: "Mobile App Development",
+        title: t("service4.title"),
         tags: ["iOS/Android", "Design"],
-        bullets: [
-          "多端一致性体验：组件系统与交互规范",
-          "离线与弱网策略：队列、重试与同步",
-          "发布体系：CI/CD、灰度与回滚",
-          "指标体系：留存、转化、崩溃率监控",
-        ],
+        bullets: [t("service4.bullet1"), t("service4.bullet2"), t("service4.bullet3"), t("service4.bullet4")],
       },
     ],
-    [],
+    [t],
   );
 
   const checks = useMemo(
@@ -342,7 +292,7 @@ export default function Home() {
           subtitle={t("section.projects.subtitle")}
           variant="paper"
         >
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3 items-stretch">
             {cases.map((c) => (
               <ProjectCard
                 key={c.title}
@@ -352,6 +302,8 @@ export default function Home() {
                 stack={c.stack}
                 image={c.image}
                 link={c.link}
+                resultsLabel={t("projects.resultsLabel")}
+                linkAriaLabel={t("projects.openSite")}
                 onView={() => {
                   setSelectedCase(c.title);
                   toast({
@@ -524,13 +476,13 @@ export default function Home() {
               <div className="mt-5 rounded-2xl border bg-card/40 p-4 soft-outline">
                 <div className="text-xs text-muted-foreground">Email</div>
                 <div className="mt-1 flex items-center justify-between gap-2 flex-wrap">
-                  <div className="font-semibold">hello@nebula-studio.example</div>
+                  <div className="font-semibold">kick.3top@gmail.com</div>
                   <Button
                     type="button"
                     variant="outline"
                     size="sm"
                     onClick={() => {
-                      copyToClipboard("hello@nebula-studio.example");
+                      copyToClipboard("kick.3top@gmail.com");
                       toast({ title: "Copied", description: "Email address copied to clipboard." });
                     }}
                   >

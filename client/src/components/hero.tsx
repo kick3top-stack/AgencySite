@@ -93,7 +93,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border bg-card/35 px-3 py-1 text-xs font-semibold tracking-wide text-muted-foreground surface-glass"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span>精工小队 · 只做高难度与高标准</span>
+              <span>{t("hero.badge")}</span>
             </motion.div>
 
             <motion.h1
@@ -125,11 +125,11 @@ export function Hero() {
               className="mt-8 flex flex-col sm:flex-row gap-3"
             >
               <Button type="button" onClick={() => scrollToSection("contact")}>
-                开始一个项目
+                {t("hero.ctaStart")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button type="button" variant="outline" onClick={() => scrollToSection("contact")}>
-                联系我们
+                {t("hero.ctaContact")}
                 <Mail className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>

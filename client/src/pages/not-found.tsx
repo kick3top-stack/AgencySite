@@ -2,9 +2,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { NavBar } from "@/components/nav-bar";
+import { useLocale } from "@/components/locale-provider";
 import { Sparkles } from "lucide-react";
 
 export default function NotFound() {
+  const { t } = useLocale();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <NavBar />
@@ -15,20 +17,20 @@ export default function NotFound() {
               <Sparkles className="h-6 w-6" />
             </div>
             <div className="min-w-0">
-              <h1 className="font-display text-3xl font-black tracking-tight">404 · 页面未找到</h1>
+              <h1 className="font-display text-3xl font-black tracking-tight">{t("notfound.title")}</h1>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                你访问的页面不存在。返回首页继续探索星云的服务与案例。
+                {t("notfound.desc")}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 <Link href="/" className="inline-flex">
-                  <Button type="button">回到首页</Button>
+                  <Button type="button">{t("notfound.home")}</Button>
                 </Link>
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => window.history.back()}
                 >
-                  返回上一页
+                  {t("notfound.back")}
                 </Button>
               </div>
             </div>
