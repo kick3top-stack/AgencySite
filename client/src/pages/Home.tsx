@@ -24,6 +24,7 @@ import { ServiceCard } from "@/components/service-card";
 import { ProjectCard } from "@/components/project-card";
 import { TechIcon } from "@/components/tech-icon";
 import { BoatSilhouette } from "@/components/ornaments";
+import { useLocale } from "@/components/locale-provider";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -46,6 +47,7 @@ function copyToClipboard(text: string) {
 
 export default function Home() {
   const { toast } = useToast();
+  const { t } = useLocale();
   const [selectedCase, setSelectedCase] = useState<string | null>(null);
 
   const cases = useMemo(
@@ -139,13 +141,13 @@ export default function Home() {
 
   const checks = useMemo(
     () => [
-      { icon: Sparkles, title: "敏捷开发", desc: "每周可演示、可验收的迭代节奏，降低不确定性。" },
-      { icon: ShieldCheck, title: "安全优先", desc: "从模型到合约，从权限到审计，默认按高安全标准交付。" },
-      { icon: Cpu, title: "机密系统经验", desc: "内部系统与保密流程友好：默认 NDA、最小权限、全程留痕。" },
-      { icon: Cloud, title: "可扩展架构", desc: "指标驱动的性能基线，支持增长的模块化架构。" },
-      { icon: CheckCircle2, title: "四人核心团队", desc: "沟通链路短、工程质量稳定、责任清晰到人。" },
+      { icon: Sparkles, title: t("checks.agile"), desc: t("checks.agileDesc") },
+      { icon: ShieldCheck, title: t("checks.security"), desc: t("checks.securityDesc") },
+      { icon: Cpu, title: t("checks.confidential"), desc: t("checks.confidentialDesc") },
+      { icon: Cloud, title: t("checks.scalable"), desc: t("checks.scalableDesc") },
+      { icon: CheckCircle2, title: t("checks.team"), desc: t("checks.teamDesc") },
     ],
-    [],
+    [t],
   );
 
   const tech = useMemo(
@@ -184,9 +186,9 @@ export default function Home() {
 
         <Section
           id="about"
-          eyebrow="WHO WE ARE"
-          title="以精品工匠精神，做高可信系统"
-          subtitle="我们不是“外包工厂”。我们是一支四人核心团队，专注高难度工程交付：从安全、可扩展、可观测，到上线后的持续演进。"
+          eyebrow={t("section.about.eyebrow")}
+          title={t("section.about.title")}
+          subtitle={t("section.about.subtitle")}
           variant="paper"
         >
           <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] items-start">
@@ -194,41 +196,36 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="grid gap-1">
                   <div className="text-xs font-semibold tracking-wide text-muted-foreground">
-                    星云软件工作室 · Boutique Studio
+                    {t("section.about.studio")}
                   </div>
                   <div className="font-display text-2xl md:text-3xl font-black">
-                    小队制交付，责任到人
+                    {t("section.about.delivery")}
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary" className="no-default-active-elevate">
-                    4-person core
+                    {t("section.about.badge1")}
                   </Badge>
                   <Badge variant="secondary" className="no-default-active-elevate">
-                    Security-first
+                    {t("section.about.badge2")}
                   </Badge>
                   <Badge variant="secondary" className="no-default-active-elevate">
-                    Ship-ready
+                    {t("section.about.badge3")}
                   </Badge>
                 </div>
               </div>
 
               <div className="mt-5 grid gap-4 text-sm text-muted-foreground leading-relaxed">
-                <p>
-                  我们擅长把复杂问题拆解为清晰的系统边界：核心域、数据域与权限域。用可测试、可维护、可扩展的方式，把产品真正交付到生产环境。
-                </p>
-                <p>
-                  我们的审美来自中国传统的“留白与克制”，工程精神来自现代软件的“可验证与可演进”。
-                  这两者融合，就是我们持续打磨的交付方式。
-                </p>
+                <p>{t("section.about.para1")}</p>
+                <p>{t("section.about.para2")}</p>
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
                 {[
-                  { k: "经验", v: "多年工程交付" },
-                  { k: "节奏", v: "周迭代可演示" },
-                  { k: "质量", v: "测试/审计友好" },
-                  { k: "上线", v: "可观测可回滚" },
+                  { k: t("section.about.exp"), v: t("section.about.expV") },
+                  { k: t("section.about.rhythm"), v: t("section.about.rhythmV") },
+                  { k: t("section.about.quality"), v: t("section.about.qualityV") },
+                  { k: t("section.about.launch"), v: t("section.about.launchV") },
                 ].map((s) => (
                   <div key={s.k} className="rounded-2xl border bg-card/40 p-4 soft-outline">
                     <div className="text-xs text-muted-foreground">{s.k}</div>
@@ -241,18 +238,18 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -top-6 -right-6 -z-10 h-44 w-44 rounded-full blur-3xl opacity-40 bg-[hsl(var(--accent)/.25)]" />
               <div className="rounded-3xl border p-6 md:p-7 surface-glass">
-                <div className="font-display text-xl font-extrabold">江南意象 · 低饱和装饰</div>
+                <div className="font-display text-xl font-extrabold">{t("section.about.jiangnan")}</div>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  我们把文化元素作为“氛围层”，从不抢走内容与功能的注意力：像墨色淡入纸面，像雾气掠过水面。
+                  {t("section.about.jiangnanDesc")}
                 </p>
                 <div className="mt-6 relative rounded-2xl border bg-card/35 p-4">
                   <div className="absolute inset-0 opacity-[0.18] text-foreground">
                     <BoatSilhouette className="absolute -bottom-3 left-0 right-0" />
                   </div>
                   <div className="relative">
-                    <div className="text-xs font-semibold tracking-wide text-muted-foreground">传统元素 · 仅 5–10% 不透明度</div>
+                    <div className="text-xs font-semibold tracking-wide text-muted-foreground">{t("section.about.traditional")}</div>
                     <div className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                      小舟、远山、薄雾——作为现代界面中的“呼吸”，让科技更有温度。
+                      {t("section.about.traditionalDesc")}
                     </div>
                   </div>
                 </div>
@@ -268,10 +265,10 @@ export default function Home() {
                       });
                     }}
                   >
-                    获取工作室介绍
+                    {t("section.about.getDeck")}
                   </Button>
                   <Button type="button" variant="default" onClick={() => window.open("https://www.linkedin.com/", "_blank")}>
-                    LinkedIn（占位）
+                    {t("section.about.linkedin")}
                   </Button>
                 </div>
               </div>
@@ -281,9 +278,9 @@ export default function Home() {
 
         <Section
           id="services"
-          eyebrow="SERVICES"
-          title="四大能力，覆盖从 0 到 1 的关键路径"
-          subtitle="从链上安全到 AI 工程化，从 Web 体验到移动端上架——我们以同一套高标准交付。"
+          eyebrow={t("section.services.eyebrow")}
+          title={t("section.services.title")}
+          subtitle={t("section.services.subtitle")}
           variant="cosmic"
         >
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -295,9 +292,9 @@ export default function Home() {
 
         <Section
           id="projects"
-          eyebrow="CASE STUDIES"
-          title="案例：以结果为导向的工程交付"
-          subtitle="以下为匿名化案例，展示我们在架构、性能、安全与上线节奏上的能力。"
+          eyebrow={t("section.projects.eyebrow")}
+          title={t("section.projects.title")}
+          subtitle={t("section.projects.subtitle")}
           variant="paper"
         >
           <div className="grid gap-5 lg:grid-cols-3">
@@ -322,14 +319,14 @@ export default function Home() {
           <div className="mt-6 rounded-3xl border surface-glass p-5 md:p-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
               <div>
-                <div className="font-display text-lg font-extrabold">想看更接近你行业的案例？</div>
+                <div className="font-display text-lg font-extrabold">{t("section.projects.moreTitle")}</div>
                 <div className="mt-1 text-sm text-muted-foreground">
-                  发送你的需求与约束条件，我们会以保密方式提供匹配的交付方案与时间线。
+                  {t("section.projects.moreDesc")}
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button type="button" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-                  联系我们
+                  {t("section.projects.contactUs")}
                 </Button>
                 <Button
                   type="button"
@@ -341,7 +338,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  当前选中
+                  {t("section.projects.selected")}
                 </Button>
               </div>
             </div>
@@ -350,16 +347,16 @@ export default function Home() {
 
         <Section
           id="why"
-          eyebrow="WHY US"
-          title="为什么选择我们"
-          subtitle="我们用工程纪律保证交付，用文化审美保证体验。"
+          eyebrow={t("section.why.eyebrow")}
+          title={t("section.why.title")}
+          subtitle={t("section.why.subtitle")}
           variant="cosmic"
         >
           <div className="grid gap-5 lg:grid-cols-2">
             <Card className="surface-glass p-6 md:p-7 gold-halo">
-              <div className="font-display text-2xl font-black">交付原则</div>
+              <div className="font-display text-2xl font-black">{t("section.why.principles")}</div>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                把“能跑”变成“可运营”。把“可用”打磨成“可信”。把“上线”升级为“持续进化”。
+                {t("section.why.principlesDesc")}
               </p>
 
               <div className="mt-6 grid gap-3">
@@ -383,9 +380,9 @@ export default function Home() {
               <Card className="surface-glass p-6 md:p-7">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <div>
-                    <div className="font-display text-xl font-extrabold">安全与保密默认开启</div>
+                    <div className="font-display text-xl font-extrabold">{t("section.why.securityTitle")}</div>
                     <div className="mt-1 text-sm text-muted-foreground">
-                      适配内部系统与机密项目：最小权限、审计留痕、发布可回滚。
+                      {t("section.why.securityDesc")}
                     </div>
                   </div>
                   <ShieldCheck className="h-6 w-6 text-foreground opacity-80" />
@@ -402,18 +399,18 @@ export default function Home() {
               <Card className="surface-glass p-6 md:p-7">
                 <div className="flex items-center justify-between gap-2 flex-wrap">
                   <div>
-                    <div className="font-display text-xl font-extrabold">工程可观测与质量基线</div>
+                    <div className="font-display text-xl font-extrabold">{t("section.why.observabilityTitle")}</div>
                     <div className="mt-1 text-sm text-muted-foreground">
-                      日志、追踪、错误聚合、性能预算——上线后依然可控、可迭代。
+                      {t("section.why.observabilityDesc")}
                     </div>
                   </div>
                   <Cpu className="h-6 w-6 text-foreground opacity-80" />
                 </div>
                 <div className="mt-5 grid gap-3">
                   {[
-                    { k: "监控", v: "关键指标告警与追踪" },
-                    { k: "性能", v: "首屏/交互延迟预算" },
-                    { k: "质量", v: "测试覆盖与审计配合" },
+                    { k: t("section.why.monitor"), v: t("section.why.monitorV") },
+                    { k: t("section.why.perf"), v: t("section.why.perfV") },
+                    { k: t("section.why.quality"), v: t("section.why.qualityV") },
                   ].map((x) => (
                     <div key={x.k} className="rounded-2xl border bg-card/40 p-4 soft-outline">
                       <div className="text-xs text-muted-foreground">{x.k}</div>
@@ -428,9 +425,9 @@ export default function Home() {
 
         <Section
           id="stack"
-          eyebrow="TECH STACK"
-          title="技术栈：稳、快、可扩展"
-          subtitle="我们选择成熟的工程栈，并用一致的交付标准把它们变成可长期维护的产品。"
+          eyebrow={t("section.stack.eyebrow")}
+          title={t("section.stack.title")}
+          subtitle={t("section.stack.subtitle")}
           variant="paper"
         >
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -442,9 +439,9 @@ export default function Home() {
           <div className="mt-7 rounded-3xl border surface-glass p-5 md:p-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
               <div>
-                <div className="font-display text-lg font-extrabold">我们也支持你的既有栈</div>
+                <div className="font-display text-lg font-extrabold">{t("section.stack.alsoTitle")}</div>
                 <div className="mt-1 text-sm text-muted-foreground">
-                  迁移、重构与接手旧系统同样擅长——以可控风险推进。
+                  {t("section.stack.alsoDesc")}
                 </div>
               </div>
               <Button
@@ -457,7 +454,7 @@ export default function Home() {
                   });
                 }}
               >
-                咨询兼容性
+                {t("section.stack.consult")}
               </Button>
             </div>
           </div>
@@ -465,16 +462,16 @@ export default function Home() {
 
         <Section
           id="contact"
-          eyebrow="CONTACT"
-          title="联系：用一封信息开始"
-          subtitle="我们会在 1–2 个工作日内回复。此表单为前端演示：提交会显示提示，不会实际发送。"
+          eyebrow={t("section.contact.eyebrow")}
+          title={t("section.contact.title")}
+          subtitle={t("section.contact.subtitle")}
           variant="cosmic"
         >
           <div className="grid gap-6 lg:grid-cols-[.9fr_1.1fr] items-start">
             <Card className="surface-glass p-6 md:p-7 gold-halo">
-              <div className="font-display text-2xl font-black">直接联系</div>
+              <div className="font-display text-2xl font-black">{t("section.contact.directTitle")}</div>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                如果你更希望邮件沟通，复制以下地址即可。我们支持 NDA 与保密流程。
+                {t("section.contact.directDesc")}
               </p>
 
               <div className="mt-5 rounded-2xl border bg-card/40 p-4 soft-outline">
@@ -491,16 +488,16 @@ export default function Home() {
                     }}
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    复制
+                    {t("section.contact.copy")}
                   </Button>
                 </div>
               </div>
 
               <div className="mt-6 grid gap-3">
                 {[
-                  { icon: ShieldCheck, title: "保密默认开启", desc: "NDA、最小权限、审计留痕。" },
-                  { icon: Blocks, title: "工程可验收", desc: "可演示、可验收、可追踪的交付物。" },
-                  { icon: BrainCircuit, title: "复杂度友好", desc: "链上、AI、系统集成都能落地。" },
+                  { icon: ShieldCheck, title: t("section.contact.confidential"), desc: t("section.contact.confidentialDesc") },
+                  { icon: Blocks, title: t("section.contact.deliverable"), desc: t("section.contact.deliverableDesc") },
+                  { icon: BrainCircuit, title: t("section.contact.complexity"), desc: t("section.contact.complexityDesc") },
                 ].map((x) => (
                   <div key={x.title} className="rounded-2xl border bg-card/40 p-4 soft-outline">
                     <div className="flex items-start gap-3">
@@ -518,7 +515,7 @@ export default function Home() {
 
               <div className="mt-6 flex flex-wrap gap-2">
                 <Button type="button" onClick={() => window.open("https://www.linkedin.com/", "_blank")}>
-                  LinkedIn（占位）
+                  {t("section.contact.linkedin")}
                 </Button>
                 <Button
                   type="button"
@@ -530,7 +527,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  预约通话（演示）
+                  {t("section.contact.schedule")}
                 </Button>
               </div>
             </Card>
@@ -538,23 +535,23 @@ export default function Home() {
             <Card className="surface-glass p-6 md:p-7">
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div>
-                  <div className="font-display text-2xl font-black">联系表单</div>
+                  <div className="font-display text-2xl font-black">{t("section.contact.formTitle")}</div>
                   <div className="mt-1 text-sm text-muted-foreground">
-                    请尽量提供目标、时间线、预算范围与任何约束条件。
+                    {t("section.contact.formDesc")}
                   </div>
                 </div>
                 <div className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
                   <CheckCircle2 className="h-4 w-4 text-accent" />
-                  <span>前端校验</span>
+                  <span>{t("section.contact.formValidation")}</span>
                 </div>
               </div>
 
               <form onSubmit={submit} className="mt-6 grid gap-4">
                 <div className="grid gap-2">
                   <label className="text-sm font-semibold" htmlFor="name">
-                    Name
+                    {t("section.contact.name")}
                   </label>
-                  <Input id="name" placeholder="Your name" {...form.register("name")} />
+                  <Input id="name" placeholder={t("section.contact.namePlaceholder")} {...form.register("name")} />
                   {form.formState.errors.name ? (
                     <div className="text-sm text-destructive">{form.formState.errors.name.message}</div>
                   ) : null}
@@ -562,9 +559,9 @@ export default function Home() {
 
                 <div className="grid gap-2">
                   <label className="text-sm font-semibold" htmlFor="email">
-                    Email
+                    {t("section.contact.email")}
                   </label>
-                  <Input id="email" type="email" placeholder="you@company.com" {...form.register("email")} />
+                  <Input id="email" type="email" placeholder={t("section.contact.emailPlaceholder")} {...form.register("email")} />
                   {form.formState.errors.email ? (
                     <div className="text-sm text-destructive">{form.formState.errors.email.message}</div>
                   ) : null}
@@ -572,9 +569,9 @@ export default function Home() {
 
                 <div className="grid gap-2">
                   <label className="text-sm font-semibold" htmlFor="company">
-                    Company <span className="text-muted-foreground font-normal">(optional)</span>
+                    {t("section.contact.company")} <span className="text-muted-foreground font-normal">{t("section.contact.companyOptional")}</span>
                   </label>
-                  <Input id="company" placeholder="Company / organization" {...form.register("company")} />
+                  <Input id="company" placeholder={t("section.contact.companyPlaceholder")} {...form.register("company")} />
                   {form.formState.errors.company ? (
                     <div className="text-sm text-destructive">{form.formState.errors.company.message}</div>
                   ) : null}
@@ -582,12 +579,12 @@ export default function Home() {
 
                 <div className="grid gap-2">
                   <label className="text-sm font-semibold" htmlFor="message">
-                    Message
+                    {t("section.contact.message")}
                   </label>
                   <Textarea
                     id="message"
                     rows={6}
-                    placeholder="Tell us what you're building, constraints, timeline, and success criteria..."
+                    placeholder={t("section.contact.messagePlaceholder")}
                     {...form.register("message")}
                   />
                   {form.formState.errors.message ? (
@@ -597,7 +594,7 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
                   <div className="text-xs text-muted-foreground">
-                    By submitting, you agree this is a demo submission (no real email sent).
+                    {t("section.contact.disclaimer")}
                   </div>
                   <div className="flex gap-2">
                     <Button
@@ -608,10 +605,10 @@ export default function Home() {
                         toast({ title: "Cleared", description: "Form reset." });
                       }}
                     >
-                      清空
+                      {t("section.contact.clear")}
                     </Button>
                     <Button type="submit" disabled={!form.formState.isValid || form.formState.isSubmitting}>
-                      {form.formState.isSubmitting ? "Sending..." : "发送信息"}
+                      {form.formState.isSubmitting ? t("section.contact.sending") : t("section.contact.send")}
                     </Button>
                   </div>
                 </div>
@@ -623,9 +620,9 @@ export default function Home() {
                     <Sparkles className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
-                    <div className="font-semibold">建议信息结构</div>
+                    <div className="font-semibold">{t("section.contact.suggestTitle")}</div>
                     <div className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                      目标（What）/ 约束（Constraints）/ 时间线（When）/ 成功指标（Success metrics）/ 现有系统（If any）
+                      {t("section.contact.suggestDesc")}
                     </div>
                   </div>
                 </div>
@@ -637,9 +634,9 @@ export default function Home() {
             <div className="h-px divider-ink" />
             <div className="mt-6 flex flex-col md:flex-row md:items-center justify-between gap-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <span className="font-display font-extrabold text-foreground">星云软件工作室</span>
+                <span className="font-display font-extrabold text-foreground">{t("footer.brand")}</span>
                 <span>·</span>
-                <span>Cosmic craft, Jiangnan soul</span>
+                <span>{t("footer.tagline")}</span>
               </div>
               <div className="flex items-center gap-3 flex-wrap">
                 <Button
@@ -653,7 +650,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  Privacy
+                  {t("footer.privacy")}
                 </Button>
                 <Button
                   type="button"
@@ -666,7 +663,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  Terms
+                  {t("footer.terms")}
                 </Button>
               </div>
             </div>

@@ -4,15 +4,17 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useLocale } from "@/components/locale-provider";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { id: "about", label: "关于我们" },
-  { id: "services", label: "服务" },
-  { id: "projects", label: "案例" },
-  { id: "why", label: "选择我们" },
-  { id: "stack", label: "技术栈" },
-  { id: "contact", label: "联系" },
+const navItemKeys = [
+  { id: "about", key: "nav.about" },
+  { id: "services", key: "nav.services" },
+  { id: "projects", key: "nav.projects" },
+  { id: "why", key: "nav.why" },
+  { id: "stack", key: "nav.stack" },
+  { id: "contact", key: "nav.contact" },
 ] as const;
 
 function scrollToSection(id: string) {
@@ -27,6 +29,7 @@ export function NavBar() {
   const onHome = location === "/" || location === "";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLocale();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 14);
@@ -82,14 +85,14 @@ export function NavBar() {
                         "radial-gradient(22px 22px at 30% 30%, hsl(var(--accent) / .35), transparent 60%), radial-gradient(30px 30px at 70% 70%, hsl(var(--primary) / .32), transparent 62%)",
                     }}
                   />
-                  <span className="relative font-display text-lg font-black nebula-text">星</span>
+                  <span className="relative font-display text-lg font-black nebula-text">{t("nav.logo")}</span>
                 </div>
                 <div className="leading-tight">
                   <div className="font-display text-sm sm:text-base font-extrabold tracking-tight">
-                    星云软件工作室
+                    {t("nav.brand")}
                   </div>
                   <div className="text-xs text-muted-foreground hidden sm:block">
-                    Nebula-grade craft · Jiangnan spirit
+                    {t("nav.tagline")}
                   </div>
                 </div>
               </Link>
@@ -98,7 +101,7 @@ export function NavBar() {
 
           <div className="hidden md:flex items-center gap-2">
             <nav className="flex items-center gap-1">
-              {navItems.map((item) => (
+              {navItemKeys.map((item) => (
                 <Button
                   key={item.id}
                   type="button"
@@ -107,7 +110,7 @@ export function NavBar() {
                   onClick={() => scrollToSection(item.id)}
                   className="text-muted-foreground"
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Button>
               ))}
             </nav>
@@ -118,14 +121,16 @@ export function NavBar() {
                 onClick={() => scrollToSection("contact")}
                 className="shadow-lg shadow-black/5"
               >
-                发起项目
+                {t("nav.cta")}
               </Button>
               <ThemeToggle />
+              <LanguageToggle />
             </div>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
+            <LanguageToggle />
             <Button
               type="button"
               variant="outline"
@@ -141,7 +146,7 @@ export function NavBar() {
         <div className={cn("md:hidden overflow-hidden", open ? "max-h-[420px]" : "max-h-0")}>
           <div className="pb-4 pt-1">
             <div className="grid gap-2 rounded-2xl border bg-card/60 p-3 surface-glass">
-              {navItems.map((item) => (
+              {navItemKeys.map((item) => (
                 <Button
                   key={item.id}
                   type="button"
@@ -152,7 +157,7 @@ export function NavBar() {
                     scrollToSection(item.id);
                   }}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Button>
               ))}
               <div className="h-px divider-ink" />
@@ -164,7 +169,7 @@ export function NavBar() {
                   scrollToSection("contact");
                 }}
               >
-                发起项目
+                {t("nav.cta")}
               </Button>
             </div>
           </div>

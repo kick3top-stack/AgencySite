@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LocaleProvider } from "@/components/locale-provider";
 
 function Router() {
   return (
@@ -22,8 +23,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <ThemeProvider>
-          <Toaster />
-          <Router />
+          <LocaleProvider>
+            <Toaster />
+            <Router />
+          </LocaleProvider>
         </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MountainMist } from "@/components/ornaments";
+import { useLocale } from "@/components/locale-provider";
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
@@ -16,6 +17,7 @@ function randomBetween(min: number, max: number) {
 }
 
 export function Hero() {
+  const { t } = useLocale();
   const particles = useMemo(() => {
     const count = 14;
     return Array.from({ length: count }, (_, i) => ({
@@ -100,10 +102,10 @@ export function Hero() {
               transition={{ duration: 0.85, delay: 0.05, ease: [0.2, 0.8, 0.2, 1] }}
               className="mt-5 text-5xl md:text-7xl font-black tracking-tight title-glow"
             >
-              <span className="nebula-text">星云</span>
-              <span className="ml-2">之上</span>
+              <span className="nebula-text">{t("hero.title1")}</span>
+              <span className="ml-2">{t("hero.title2")}</span>
               <span className="block mt-2 text-3xl md:text-4xl text-muted-foreground font-semibold">
-                以江南气韵，造未来系统
+                {t("hero.subtitle")}
               </span>
             </motion.h1>
 
@@ -113,8 +115,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.12, ease: [0.2, 0.8, 0.2, 1] }}
               className="mt-5 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed"
             >
-              星云软件工作室是一支四人核心团队的精品技术工作室，专注于区块链、AI、Web 与移动端系统开发。
-              我们以安全、可扩展与可交付为先，交付可直接上线与持续迭代的高端产品。
+              {t("hero.desc")}
             </motion.p>
 
             <motion.div
@@ -140,10 +141,10 @@ export function Hero() {
               className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl"
             >
               {[
-                { k: "核心成员", v: "4 人" },
-                { k: "交付方式", v: "敏捷迭代" },
-                { k: "项目类型", v: "企业级系统" },
-                { k: "保密等级", v: "默认 NDA" },
+                { k: t("hero.stat1"), v: t("hero.stat1v") },
+                { k: t("hero.stat2"), v: t("hero.stat2v") },
+                { k: t("hero.stat3"), v: t("hero.stat3v") },
+                { k: t("hero.stat4"), v: t("hero.stat4v") },
               ].map((stat) => (
                 <div key={stat.k} className="rounded-2xl border bg-card/40 p-3 surface-glass soft-outline">
                   <div className="text-xs text-muted-foreground">{stat.k}</div>
@@ -160,16 +161,16 @@ export function Hero() {
             className="relative"
           >
             <div className="rounded-3xl border surface-glass p-6 md:p-7 gold-halo">
-              <div className="font-display text-xl font-extrabold">我们擅长的交付节奏</div>
+              <div className="font-display text-xl font-extrabold">{t("hero.rhythmTitle")}</div>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                从需求定稿到生产发布，我们提供可追踪、可验收的工程流程——每周都有可演示的成果。
+                {t("hero.rhythmDesc")}
               </p>
 
               <div className="mt-6 grid gap-3">
                 {[
-                  { title: "Discovery / 需求与边界", desc: "目标、风险、时间线与交付物明确" },
-                  { title: "Build / 工程实现", desc: "高标准编码、测试、审计与性能基线" },
-                  { title: "Ship / 上线与运维", desc: "监控、可观测性、灰度发布与迭代计划" },
+                  { title: t("hero.rhythm1"), desc: t("hero.rhythm1d") },
+                  { title: t("hero.rhythm2"), desc: t("hero.rhythm2d") },
+                  { title: t("hero.rhythm3"), desc: t("hero.rhythm3d") },
                 ].map((s) => (
                   <div key={s.title} className="rounded-2xl border bg-card/40 p-4 soft-outline">
                     <div className="flex items-center gap-2">
@@ -182,10 +183,9 @@ export function Hero() {
               </div>
 
               <div className="mt-7 rounded-2xl border bg-card/35 p-4">
-                <div className="text-xs font-semibold tracking-wide text-muted-foreground">一句话承诺</div>
+                <div className="text-xs font-semibold tracking-wide text-muted-foreground">{t("hero.promiseLabel")}</div>
                 <div className="mt-2 text-sm md:text-base leading-relaxed">
-                  <span className="font-semibold">不做“能跑就行”。</span>
-                  我们交付的是可长期维护、可被信任、能承载增长的系统。
+                  {t("hero.promise")}
                 </div>
               </div>
             </div>
