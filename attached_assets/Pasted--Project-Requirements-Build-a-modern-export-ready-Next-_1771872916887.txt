@@ -1,0 +1,346 @@
+🔧 Project Requirements
+
+Build a modern, export-ready Next.js 14+ (App Router) + TypeScript website using Sass (SCSS modules).
+
+⚠️ Important:
+
+This is a company introduction site.
+
+DO NOT include backend.
+
+Use static export configuration.
+
+No database.
+
+No API routes.
+
+Fully frontend only.
+
+🌌 Brand Identity
+
+Company Name: 星云软件工作室 (Nebula Software Studio)
+
+Positioning:
+A boutique technology execution partner specializing in:
+
+Blockchain Development
+
+AI Solutions
+
+Web & SaaS Platforms
+
+Mobile Applications
+
+Tone:
+
+Intelligent
+
+Refined
+
+Secure
+
+High-end
+
+Strong Chinese cultural atmosphere
+
+Subtle historical aesthetic blended with modern tech
+
+🎨 Design Language
+Dual Theme System
+
+Implement a theme switcher in navbar:
+
+🌙 Dark Mode (default)
+
+☀️ Light Mode
+
+Use CSS variables + Sass for theme control.
+
+🌑 Dark Mode Style
+
+Primary colors:
+
+#0B0F1A (deep space)
+
+#141A2A
+
+#3A2F6B (nebula purple accent)
+
+#C6A75E (ancient gold accent)
+
+Style:
+
+Nebula gradient backgrounds
+
+Subtle moving stars
+
+Light gold highlights
+
+Elegant glow effects
+
+Cosmic + historical fusion
+
+🌕 Light Mode Style
+
+Primary colors:
+
+#F5F3EE (rice paper white)
+
+#EAE6DC
+
+#2C3E50 (ink blue)
+
+#B88A2A (bronze accent)
+
+Style:
+
+Very light mist backgrounds
+
+Faint ink-wash texture
+
+Elegant minimal layout
+
+Subtle bronze hover effects
+
+🏞 Cultural Visual Requirement
+
+Throughout multiple sections:
+
+Add subtle, low-opacity background illustrations of:
+
+Small traditional Chinese boats floating on river
+
+Jiangnan-style lake scenery
+
+Faint mountain silhouettes
+
+Soft mist
+
+Style requirements:
+
+Monochrome
+
+Very light opacity (5–10%)
+
+Decorative, not distracting
+
+SVG or lightweight PNG
+
+Positioned as layered background elements
+
+The site must feel distinctly Chinese, not generic tech.
+
+🏠 Website Structure
+1️⃣ Homepage (Clear & Powerful)
+Hero Section
+
+Large Chinese title:
+星云软件工作室
+
+Main Headline:
+Building Scalable Digital Solutions in Blockchain, AI & Software Development
+
+Subheadline:
+We help organizations design, build, and scale secure digital products.
+
+CTA Buttons:
+🚀 Start a Project
+📩 Contact Us
+
+Hero background:
+
+Animated nebula gradient
+
+Subtle starfield
+
+Floating particles
+
+Very faint silhouette of ancient general armor outline
+
+Light moving mist
+
+Add smooth fade-in animations.
+
+2️⃣ About Us
+
+Section title:
+Who We Are
+
+Description:
+A specialized technology agency delivering blockchain, AI, and full-stack software solutions for internal and enterprise clients.
+
+Include:
+
+4-member core team highlight
+
+Years of experience
+
+Industries served
+
+Combined expertise
+
+Positioning phrase:
+A boutique technology execution partner.
+
+Background:
+Faint Jiang river boat illustration.
+
+3️⃣ Services Section
+
+Create 4 elegant service cards with hover animation.
+
+🔗 Blockchain Development
+
+Smart contracts
+
+Token systems
+
+DeFi solutions
+
+Private blockchain systems
+
+🤖 AI Solutions
+
+Machine learning models
+
+AI automation tools
+
+Chatbot systems
+
+Data analytics
+
+🌐 Web Development
+
+Enterprise websites
+
+Admin dashboards
+
+SaaS platforms
+
+📱 Mobile App Development
+
+iOS & Android apps
+
+Cross-platform apps
+
+Internal business tools
+
+Hover effect:
+
+Soft glow
+
+Slight elevation
+
+Bronze accent border
+
+4️⃣ Projects / Case Studies
+
+Show anonymized project cards.
+
+Example:
+Internal Blockchain Audit System
+Reduced manual verification time by 60%
+
+Include:
+
+Tech stack tags
+
+Results-focused description
+
+Clean card layout
+
+5️⃣ Why Choose Us
+
+Checklist layout:
+
+✔ Agile development
+✔ Security-first approach
+✔ Confidential internal systems
+✔ Scalable architecture
+✔ Dedicated 4-person core team
+
+Add subtle background mist effect.
+
+6️⃣ Tech Stack Section
+
+Display as elegant grid with icons:
+
+Solidity
+Python
+React
+Node.js
+TensorFlow
+AWS
+
+Add hover animation + bronze accent.
+
+7️⃣ Contact Section
+
+Include:
+
+Email
+
+Contact form (frontend only, no backend logic)
+
+Calendly placeholder link
+
+LinkedIn placeholder
+
+Elegant minimal layout.
+
+✨ Animation Requirements
+
+Smooth scroll
+
+Fade-in on scroll
+
+Parallax background movement
+
+Button hover glow
+
+Title subtle glow animation
+
+Soft floating particles in hero
+
+Theme transition animation (smooth color fade)
+
+📁 Folder Structure
+
+/app
+/components
+/styles
+/public/assets
+
+Use:
+
+SCSS modules per component
+
+Global theme variables
+
+Separate ThemeContext
+
+⚙ Performance
+
+Optimized images
+
+No heavy animation libraries
+
+Pure CSS + small JS
+
+Clean semantic HTML
+
+SEO metadata configured
+
+🎯 Deliverables
+
+Fully working Next.js project
+
+Static export ready
+
+Dark/Light toggle implemented
+
+Strong Chinese cultural atmosphere
+
+Elegant, professional enterprise positioning
+
+Clean and maintainable code
