@@ -41,12 +41,13 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 
-import image1 from "@/images/image1.png";
-import image2 from "@/images/image2.png";
-import image3 from "@/images/image3.png";
-import image4 from "@/images/image4.png";
-import image5 from "@/images/image5.png";
-import image6 from "@/images/image6.png";
+// Match repo filenames exactly: image1.PNG … image6.PNG (Vercel/Linux is case-sensitive).
+import image1 from "@/images/image1.PNG";
+import image2 from "@/images/image2.PNG";
+import image3 from "@/images/image3.PNG";
+import image4 from "@/images/image4.PNG";
+import image5 from "@/images/image5.PNG";
+import image6 from "@/images/image6.PNG";
 
 function copyToClipboard(text: string) {
   void navigator.clipboard?.writeText(text);
