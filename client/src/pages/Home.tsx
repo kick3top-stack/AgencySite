@@ -90,7 +90,7 @@ export default function Home() {
         stack: [t("case4.stack1"), t("case4.stack2"), t("case4.stack3"), t("case4.stack4"), t("case4.stack5")],
         results: [t("case4.result1"), t("case4.result2"), t("case4.result3")],
         image: image4,
-        link: "https://www.baidu.com",
+        link: "http://api.qingyunke.com/",
       },
       {
         title: t("case5.title"),

@@ -1,4 +1,75 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap");
+/* Local fonts: Manrope + Noto Serif SC (self-hosted to avoid Google Fonts blocking) */
+@font-face {
+  font-family: "ManropeLocal";
+  src: url("./font/static/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManropeLocal";
+  src: url("./font/static/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManropeLocal";
+  src: url("./font/static/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManropeLocal";
+  src: url("./font/static/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManropeLocal";
+  src: url("./font/static/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSerifSCLocal";
+  src: url("./font/static/NotoSerifSC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSerifSCLocal";
+  src: url("./font/static/NotoSerifSC-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSerifSCLocal";
+  src: url("./font/static/NotoSerifSC-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSerifSCLocal";
+  src: url("./font/static/NotoSerifSC-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -12,8 +83,8 @@
    ========================================================= */
 
 :root {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
-  --font-serif: "Noto Serif SC", ui-serif, Georgia, serif;
+  --font-sans: "ManropeLocal", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-serif: "NotoSerifSCLocal", ui-serif, Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
   /* Light mode (rice paper) */
@@ -145,11 +216,11 @@
 
   html {
     scroll-behavior: smooth;
+      font-family: var(--font-sans);
   }
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-sans);
   }
 
   h1,

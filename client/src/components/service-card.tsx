@@ -26,16 +26,24 @@ export function ServiceCard({
     >
       <Card className="h-full surface-glass gold-halo">
         <CardHeader className="flex flex-row items-start justify-between gap-2 space-y-0">
-          <div className="grid gap-2">
+          <div className="grid gap-2 min-w-0">
             <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-card/60">
               <Icon className="h-5 w-5 text-foreground" />
             </div>
-            <CardTitle className="text-xl font-extrabold">{title}</CardTitle>
+            {/* Force the title onto a single line and let it visually overflow instead of being truncated or scrollable. */}
+            <CardTitle className="text-xl font-extrabold whitespace-nowrap">
+              {title}
+            </CardTitle>
           </div>
 
-          <div className="flex flex-wrap gap-2 justify-end">
+          {/* Keep all skill tags on a single line; allow them to overflow horizontally so text is never cut off. */}
+          <div className="flex flex-nowrap gap-2 justify-end">
             {tags.map((t) => (
-              <Badge key={t} variant="secondary" className="no-default-active-elevate">
+              <Badge
+                key={t}
+                variant="secondary"
+                className="no-default-active-elevate shrink-0 whitespace-nowrap"
+              >
                 {t}
               </Badge>
             ))}
